@@ -39,6 +39,19 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+      body: Center(
+        child: Padding(padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset("assets/images/banner.jpg"), 
+            ),
+            ],
+          ),
+        ),
+      ),
     
     );
   }
