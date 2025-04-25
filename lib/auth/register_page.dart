@@ -19,7 +19,7 @@ class _RegisterPageState extends State<RegisterPage> {
       appBar: AppBar(),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Form(
               key: _formKey,
@@ -29,95 +29,167 @@ class _RegisterPageState extends State<RegisterPage> {
                   spacing: 16.0,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Image.asset(
+                      "assets/images/cosmo_square.png",
+                      width: 100,
+                      height: 100,
+                    ),
                     const Text(
                       "DAFTAR AKUN BARU",
                       style: TextStyle(fontSize: 32),
                     ),
-                    TextFormField(
-                      controller: nameController,
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.person),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16.0),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Nama Lengkap", style: TextStyle(fontSize: 16)),
+                        TextFormField(
+                          controller: nameController,
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.person),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                            hintText: 'Nama Lengkap',
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Nama lengkap tidak boleh kosong';
+                            }
+                            return null;
+                          },
                         ),
-                        hintText: 'Nama Lengkap',
-                      ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your name';
-                        }
-                        return null;
-                      },
+                      ],
                     ),
-                    TextFormField(
-                      controller: emailController,
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.email),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16.0),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Email", style: TextStyle(fontSize: 16)),
+                              TextFormField(
+                                controller: emailController,
+                                decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.email),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  hintText: 'Email',
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Email tidak boleh kosong';
+                                  }
+                                  return null;
+                                },
+                              ),
+                            ],
+                          ),
                         ),
-                        hintText: 'Email',
-                      ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your email';
-                        }
-                        return null;
-                      },
-                    ),
-                    TextFormField(
-                      controller: hpController,
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.phone),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16.0),
+                        SizedBox(width: 8.0),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("No Hp", style: TextStyle(fontSize: 16)),
+                              TextFormField(
+                                controller: hpController,
+                                decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.phone),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  hintText: 'No Hp',
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'No Hp tidak boleh kosong';
+                                  }
+                                  return null;
+                                },
+                              ),
+                            ],
+                          ),
                         ),
-                        hintText: 'No Hp',
-                      ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your no hp';
-                        }
-                        return null;
-                      },
+                      ],
                     ),
-                    TextFormField(
-                      controller: passwordController,
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.lock),
-                        suffixIcon: Icon(Icons.visibility_off),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16.0),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Password', style: TextStyle(fontSize: 16)),
+                              TextFormField(
+                                controller: passwordController,
+                                decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.lock),
+                                  suffixIcon: Icon(Icons.visibility_off),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  hintText: 'Password',
+                                ),
+                                obscureText: true,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Password tidak boleh kosong';
+                                  }
+                                  return null;
+                                },
+                              ),
+                            ],
+                          ),
                         ),
-                        hintText: 'Password',
-                      ),
-                      obscureText: true,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your password';
-                        }
-                        return null;
-                      },
-                    ),
-                    TextFormField(
-                      controller: passwordController,
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.lock),
-                        suffixIcon: Icon(Icons.visibility_off),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16.0),
+                        SizedBox(width: 8.0),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Konfirmasi Password',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                              TextFormField(
+                                controller: passwordController,
+                                decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.lock),
+                                  suffixIcon: Icon(Icons.visibility_off),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  hintText: 'Konfirmasi Password',
+                                ),
+                                obscureText: true,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Konfirmasi password tidak boleh kosong';
+                                  }
+                                  return null;
+                                },
+                              ),
+                            ],
+                          ),
                         ),
-                        hintText: 'Konfirmasi Password',
-                      ),
-                      obscureText: true,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your password';
-                        }
-                        return null;
-                      },
+                      ],
                     ),
-                    ElevatedButton(onPressed: () {}, child: Text('Daftar')),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all<Color>(
+                                Color.fromRGBO(1, 241, 255, 1),
+                              ),
+                            ),
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {}
+                            },
+                            child: Text('Daftar'),
+                          ),
+                        ),
+                      ],
+                    ),
                     TextButton(
                       onPressed: () {
                         // Navigator.pushNamed(context, '/login');
