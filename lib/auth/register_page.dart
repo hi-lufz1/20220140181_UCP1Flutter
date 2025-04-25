@@ -185,7 +185,20 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                             ),
                             onPressed: () {
-                              if (_formKey.currentState!.validate()) {}
+                              if (_formKey.currentState!.validate()) {
+                                if (passwordController.text !=
+                                    confirmPWController.text) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Password tidak sama',
+                                      ),
+                                      backgroundColor: Colors.red,
+                                    ),
+                                  );
+                                  return;
+                                }
+                              }
                             },
                             child: Text('Daftar'),
                           ),
