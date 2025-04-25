@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/widget/menu_button.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -6,8 +7,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     appBar: AppBar(
-        backgroundColor:  Color.fromRGBO(0, 172, 203, 1),
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(0, 172, 203, 1),
         toolbarHeight: 100,
         automaticallyImplyLeading: false,
         title: Row(
@@ -26,33 +27,36 @@ class HomePage extends StatelessWidget {
                 ),
                 Text(
                   "test",
-                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),
             Spacer(),
             IconButton(
               icon: Icon(Icons.logout, color: Colors.white),
-              onPressed: () {
-              },
+              onPressed: () {},
             ),
           ],
         ),
       ),
       body: Center(
-        child: Padding(padding: const EdgeInsets.all(16.0),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.asset("assets/images/banner.jpg"), 
-            ),
+                borderRadius: BorderRadius.circular(16),
+                child: Image.asset("assets/images/banner.jpg"),
+              ),
             ],
           ),
         ),
       ),
-    
     );
   }
 }
