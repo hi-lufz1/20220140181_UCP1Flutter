@@ -13,9 +13,11 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final _formKey = GlobalKey<FormState>();
     return Scaffold(
       body: Center(
         child: Form(
+          key: _formKey,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -44,6 +46,12 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         hintText: 'Email',
                       ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Email tidak boleh kosong';
+                        }
+                        return null;
+                      },
                     ),
                     SizedBox(height: 16.0),
                     Text("Password", style: TextStyle(fontSize: 16)),
@@ -57,6 +65,12 @@ class _LoginPageState extends State<LoginPage> {
                         hintText: 'Password',
                       ),
                       obscureText: true,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Password tidak boleh kosong';
+                        }
+                        return null;
+                      },
                     ),
                   ],
                 ),
@@ -72,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                             onPressed: () {
-                              // if (_formKey.currentState!.validate()) {}
+                              if (_formKey.currentState!.validate()) {}
                             },
                             child: Text("Masuk"),
                           ),
