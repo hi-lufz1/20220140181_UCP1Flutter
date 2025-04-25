@@ -60,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.lock),
                         suffixIcon: IconButton(
-                          icon: Icon(Icons.visibility),
+                          icon: Icon(Icons.visibility_off),
                           onPressed: () {},
                         ),
                         border: OutlineInputBorder(

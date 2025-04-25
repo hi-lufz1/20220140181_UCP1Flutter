@@ -12,6 +12,8 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController hpController = TextEditingController();
+  final TextEditingController confirmPWController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
@@ -151,7 +153,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 style: TextStyle(fontSize: 16),
                               ),
                               TextFormField(
-                                controller: passwordController,
+                                controller: confirmPWController,
                                 decoration: InputDecoration(
                                   prefixIcon: Icon(Icons.lock),
                                   suffixIcon: Icon(Icons.visibility_off),
