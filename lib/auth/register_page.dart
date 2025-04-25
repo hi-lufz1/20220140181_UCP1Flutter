@@ -36,7 +36,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     const Text(
                       "DAFTAR AKUN BARU",
-                      style: TextStyle(fontSize: 32),
+                      style: TextStyle(fontSize: 28),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

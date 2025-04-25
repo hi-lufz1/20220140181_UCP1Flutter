@@ -14,6 +14,25 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              "assets/images/cosmo_square.png",
+              width: 100,
+              height: 100,
+            ),
+            const Text(
+              "SELAMAT DATANG KEMBALI",
+              style: TextStyle(fontSize: 28),
+            ),
+
+          ],
+        ),
+      ),
+
+    );
   }
 }

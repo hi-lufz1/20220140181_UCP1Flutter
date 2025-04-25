@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/auth/login_page.dart';
 import 'package:ucp1/auth/register_page.dart';
 
 void main() {
@@ -17,7 +18,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const RegisterPage(),
-    );
+      home: const   LoginPage()  );
   }
 }
