@@ -26,6 +26,7 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
+                  spacing: 16.0,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
@@ -34,8 +35,12 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     TextFormField(
                       controller: nameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Nama Lengkap',
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.person),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        hintText: 'Nama Lengkap',
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -46,7 +51,13 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     TextFormField(
                       controller: emailController,
-                      decoration: const InputDecoration(labelText: 'Email'),
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.email),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        hintText: 'Email',
+                      ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your email';
@@ -56,7 +67,13 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     TextFormField(
                       controller: hpController,
-                      decoration: const InputDecoration(labelText: 'No Hp'),
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.phone),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        hintText: 'No Hp',
+                      ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your no hp';
@@ -66,7 +83,14 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     TextFormField(
                       controller: passwordController,
-                      decoration: const InputDecoration(labelText: 'Password'),
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.lock),
+                        suffixIcon: Icon(Icons.visibility_off),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        hintText: 'Password',
+                      ),
                       obscureText: true,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -77,8 +101,13 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     TextFormField(
                       controller: passwordController,
-                      decoration: const InputDecoration(
-                        labelText: 'Konfirmasi Password',
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.lock),
+                        suffixIcon: Icon(Icons.visibility_off),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        hintText: 'Konfirmasi Password',
                       ),
                       obscureText: true,
                       validator: (value) {
