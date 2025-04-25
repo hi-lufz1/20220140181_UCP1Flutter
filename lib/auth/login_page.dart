@@ -60,6 +60,33 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all<Color>(
+                                Color.fromRGBO(1, 241, 255, 1),
+                              ),
+                            ),
+                            onPressed: () {
+                              // if (_formKey.currentState!.validate()) {}
+                            },
+                            child: Text("Masuk"),
+                          ),
+                        ),
+                      ],
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Belum memiliki akun? Silahkan Daftar disini!',
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
