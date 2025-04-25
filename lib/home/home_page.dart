@@ -53,6 +53,44 @@ class HomePage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
                 child: Image.asset("assets/images/banner.jpg"),
               ),
+              SizedBox(height: 48),
+              Expanded(
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: MenuButton(
+                              title: "Data Piket",
+                              icon: Icons.edit_calendar,
+                              onTap: () {},
+                            ),
+                          ),
+                          SizedBox(width: 12),
+                          Expanded(
+                            child: MenuButton(
+                              title: "Data Pelanggan",
+                              icon: Icons.dashboard_customize_rounded,
+                              onTap: () {},
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 12),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: MenuButton(
+                              title: "Barang Masuk/Keluar",
+                              icon: Icons.receipt_long,
+                              onTap: () {},
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
             ],
           ),
         ),
