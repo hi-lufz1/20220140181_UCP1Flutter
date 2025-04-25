@@ -59,6 +59,10 @@ class _LoginPageState extends State<LoginPage> {
                       controller: passwordController,
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.lock),
+                        suffixIcon: IconButton(
+                          icon: Icon(Icons.visibility),
+                          onPressed: () {},
+                        ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16.0),
                         ),
