@@ -14,6 +14,9 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController hpController = TextEditingController();
   final TextEditingController confirmPWController = TextEditingController();
 
+  bool _obscurePassword = true;
+  bool _obscureConfirmPW = true;
+
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
@@ -126,13 +129,24 @@ class _RegisterPageState extends State<RegisterPage> {
                                 controller: passwordController,
                                 decoration: InputDecoration(
                                   prefixIcon: Icon(Icons.lock),
-                                  suffixIcon: Icon(Icons.visibility_off),
+                                  suffixIcon: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        _obscurePassword = !_obscurePassword;
+                                      });
+                                    },
+                                    icon: Icon(
+                                      _obscurePassword
+                                          ? Icons.visibility_off
+                                          : Icons.visibility,
+                                    ),
+                                  ),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
                                   hintText: 'Password',
                                 ),
-                                obscureText: true,
+                                obscureText: _obscurePassword,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'Password tidak boleh kosong';
@@ -156,13 +170,24 @@ class _RegisterPageState extends State<RegisterPage> {
                                 controller: confirmPWController,
                                 decoration: InputDecoration(
                                   prefixIcon: Icon(Icons.lock),
-                                  suffixIcon: Icon(Icons.visibility_off),
+                                  suffixIcon: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        _obscureConfirmPW = !_obscureConfirmPW;
+                                      });
+                                    },
+                                    icon: Icon(
+                                      _obscurePassword
+                                          ? Icons.visibility_off
+                                          : Icons.visibility,
+                                    ),
+                                  ),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
                                   hintText: 'Konfirmasi Password',
                                 ),
-                                obscureText: true,
+                                obscureText: _obscureConfirmPW,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'Konfirmasi password tidak boleh kosong';
@@ -190,9 +215,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     confirmPWController.text) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
-                                      content: Text(
-                                        'Password tidak sama',
-                                      ),
+                                      content: Text('Password tidak sama'),
                                       backgroundColor: Colors.red,
                                     ),
                                   );
