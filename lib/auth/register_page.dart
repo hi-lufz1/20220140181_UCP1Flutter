@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/auth/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -21,10 +22,9 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
     return Scaffold(
-      appBar: AppBar(),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Form(
               key: _formKey,
@@ -221,6 +221,13 @@ class _RegisterPageState extends State<RegisterPage> {
                                   );
                                   return;
                                 }
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LoginPage(),
+                                  ),
+                                  (Route<dynamic> route) => false,
+                                );
                               }
                             },
                             child: Text('Daftar'),
@@ -230,15 +237,26 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     TextButton(
                       onPressed: () {
-                        // Navigator.pushNamed(context, '/login');
-                        // Navigator.pop(context);
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => const LoginPage()),
-                        // );
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                          (Route<dynamic> route) => false,
+                        );
                       },
-                      child: Text(
-                        'Sudah memiliki akun? Silahkan login disini!',
+                      child: RichText(
+                        text: TextSpan(
+                          text: 'Sudah memiliki akun? Silahkan ',
+                          style: TextStyle(color: Colors.black),
+                          children: [
+                            TextSpan(
+                              text: 'Login disini!',
+                              style: TextStyle(
+                                color: Color.fromRGBO(1, 241, 255, 1),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
