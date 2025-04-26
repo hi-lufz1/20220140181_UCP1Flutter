@@ -12,7 +12,7 @@ class _PiketPageState extends State<PiketPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+        backgroundColor:  Colors.black,
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
@@ -27,6 +27,24 @@ class _PiketPageState extends State<PiketPage> {
         title: const Text(
           'Piket Gudang',
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        ),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+             Text("Nama Anggota", style: TextStyle(fontSize: 16)),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                      ),
+                    ),
+            ],
+          ),
         ),
       ),
     );
