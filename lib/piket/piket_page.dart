@@ -8,11 +8,15 @@ class PiketPage extends StatefulWidget {
 }
 
 class _PiketPageState extends State<PiketPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController dateController = TextEditingController();
+  final TextEditingController taskController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:  Colors.black,
+        backgroundColor: Colors.black,
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
@@ -35,14 +39,54 @@ class _PiketPageState extends State<PiketPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-             Text("Nama Anggota", style: TextStyle(fontSize: 16)),
-                    TextFormField(
+              Text("Nama Anggota", style: TextStyle(fontSize: 16)),
+              TextFormField(
+                controller: emailController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16.0),
+                  ),
+                ),
+              ),
+              SizedBox(height: 16.0),
+              Text("Tanggal Piket", style: TextStyle(fontSize: 16)),
+              TextFormField(
+                controller: dateController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16.0),
+                  ),
+                ),
+              ),
+              SizedBox(height: 16.0),
+              Text("Tugas Piket", style: TextStyle(fontSize: 16)),
+              Row(
+                children: [
+                  Expanded(
+                    child: TextFormField(
+                      controller: taskController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16.0),
                         ),
                       ),
                     ),
+                  ),
+                  SizedBox(width: 16.0),
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStateProperty.all<Color>(
+                          Color.fromRGBO(0, 224, 255, 1),
+                        ),
+                        fixedSize: WidgetStateProperty.all(Size.fromHeight(50)),
+                      ),
+                      onPressed: () {},
+                      child: Text("Tambah"),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
