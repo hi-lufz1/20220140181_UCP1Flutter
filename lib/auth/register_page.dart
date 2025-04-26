@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ucp1/auth/login_page.dart';
+import 'package:ucp1/home/home_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -224,9 +225,9 @@ class _RegisterPageState extends State<RegisterPage> {
                                 Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => LoginPage(),
+                                    builder: (context) => HomePage(user: emailController.text,),
                                   ),
-                                  (Route<dynamic> route) => false,
+                                   (Route<dynamic> route) => false,
                                 );
                               }
                             },
