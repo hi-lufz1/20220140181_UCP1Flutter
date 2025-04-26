@@ -206,7 +206,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           child: ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor: WidgetStateProperty.all<Color>(
-                                Color.fromRGBO(1, 241, 255, 1),
+                                Color.fromRGBO(0, 224, 255, 1),
                               ),
                             ),
                             onPressed: () {
@@ -251,7 +251,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             TextSpan(
                               text: 'Login disini!',
                               style: TextStyle(
-                                color: Color.fromRGBO(0, 224, 255, 1),
+                                color: Color.fromRGBO(0, 172, 203, 1),
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

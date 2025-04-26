@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(0, 172, 203, 1),
+        backgroundColor: Colors.black,
         toolbarHeight: 100,
         automaticallyImplyLeading: false,
         title: Row(
@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
                 Text(
                   user,
                   style: TextStyle(
-                    color: Colors.white,
+                    color:  Color.fromRGBO(0, 224, 255, 1),
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
             ),
             Spacer(),
             IconButton(
-              icon: Icon(Icons.logout, color: Colors.white),
+              icon: Icon(Icons.logout,color: Colors.white ),
               onPressed: () {
                 Navigator.pushReplacement(
                   context,

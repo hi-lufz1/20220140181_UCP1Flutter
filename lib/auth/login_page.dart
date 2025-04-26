@@ -133,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                             TextSpan(
                               text: 'Daftar disini!',
                               style: TextStyle(
-                                color: Color.fromRGBO(1, 241, 255, 1),
+                                color: Color.fromRGBO(0, 172, 203, 1),
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
