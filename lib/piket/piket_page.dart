@@ -12,6 +12,27 @@ class _PiketPageState extends State<PiketPage> {
   final TextEditingController dateController = TextEditingController();
   final TextEditingController taskController = TextEditingController();
 
+  List<Map<String, String>> piketList = [];
+
+  void addPiket() {
+    if (emailController.text.isNotEmpty &&
+        dateController.text.isNotEmpty &&
+        taskController.text.isNotEmpty) {
+      setState(() {
+        piketList.add({
+          'nama': emailController.text,
+          'tanggal': dateController.text,
+          'tugas': taskController.text,
+        });
+
+        // Kosongkan input setelah ditambah
+        emailController.clear();
+        dateController.clear();
+        taskController.clear();
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,63 +54,111 @@ class _PiketPageState extends State<PiketPage> {
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("Nama Anggota", style: TextStyle(fontSize: 16)),
-              TextFormField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16.0),
-                  ),
-                ),
-              ),
-              SizedBox(height: 16.0),
-              Text("Tanggal Piket", style: TextStyle(fontSize: 16)),
-              TextFormField(
-                controller: dateController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16.0),
-                  ),
-                ),
-              ),
-              SizedBox(height: 16.0),
-              Text("Tugas Piket", style: TextStyle(fontSize: 16)),
-              Row(
-                children: [
-                  Expanded(
-                    child: TextFormField(
-                      controller: taskController,
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Nama Anggota", style: TextStyle(fontSize: 16)),
+                    TextFormField(
+                      controller: emailController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16.0),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 16.0),
-                  Expanded(
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all<Color>(
-                          Color.fromRGBO(0, 224, 255, 1),
+                    SizedBox(height: 16.0),
+                    Text("Tanggal Piket", style: TextStyle(fontSize: 16)),
+                    TextFormField(
+                      controller: dateController,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16.0),
                         ),
-                        fixedSize: WidgetStateProperty.all(Size.fromHeight(50)),
                       ),
-                      onPressed: () {},
-                      child: Text("Tambah"),
                     ),
-                  ),
-                ],
+                    SizedBox(height: 16.0),
+                    Text("Tugas Piket", style: TextStyle(fontSize: 16)),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextFormField(
+                            controller: taskController,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 16.0),
+                        Expanded(
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all<Color>(
+                                Color.fromRGBO(0, 224, 255, 1),
+                              ),
+                              fixedSize: WidgetStateProperty.all(
+                                Size.fromHeight(50),
+                              ),
+                            ),
+                            onPressed: () {
+                              addPiket();
+                            },
+                            child: Text("Tambah"),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Daftar Tugas Piket",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          piketList.isEmpty
+                              ? Center(
+                                child: const Text(
+                                  "Belum ada Data",
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              )
+                              : ListView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: piketList.length,
+                                itemBuilder: (context, index) {
+                                  final piket = piketList[index];
+                                  return Card(
+                                    margin: const EdgeInsets.symmetric(
+                                      vertical: 8.0,
+                                    ),
+                                    child: ListTile(
+                                      title: Text(piket['tugas'] ?? ''),
+                                    ),
+                                  );
+                                },
+                              ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
