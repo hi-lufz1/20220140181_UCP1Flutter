@@ -98,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor: WidgetStateProperty.all<Color>(
-                                Color.fromRGBO(1, 241, 255, 1),
+                                Color.fromRGBO(0, 224, 255, 1),
                               ),
                             ),
                             onPressed: () {

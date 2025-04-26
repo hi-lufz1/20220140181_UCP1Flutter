@@ -251,7 +251,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             TextSpan(
                               text: 'Login disini!',
                               style: TextStyle(
-                                color: Color.fromRGBO(1, 241, 255, 1),
+                                color: Color.fromRGBO(0, 224, 255, 1),
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
