@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/auth/login_page.dart';
 import 'package:ucp1/widget/menu_button.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final String user;
+
+  const HomePage({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +23,13 @@ class HomePage extends StatelessWidget {
             const SizedBox(width: 12),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   "Selamat Datang",
                   style: TextStyle(color: Colors.white, fontSize: 14),
                 ),
                 Text(
-                  "test",
+                  user,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -38,7 +41,12 @@ class HomePage extends StatelessWidget {
             Spacer(),
             IconButton(
               icon: Icon(Icons.logout, color: Colors.white),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
+              },
             ),
           ],
         ),
@@ -55,42 +63,42 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height: 48),
               Expanded(
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: MenuButton(
-                              title: "Data Piket",
-                              icon: Icons.edit_calendar,
-                              onTap: () {},
-                            ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: MenuButton(
+                            title: "Data Piket",
+                            icon: Icons.edit_calendar,
+                            onTap: () {},
                           ),
-                          SizedBox(width: 12),
-                          Expanded(
-                            child: MenuButton(
-                              title: "Data Pelanggan",
-                              icon: Icons.dashboard_customize_rounded,
-                              onTap: () {},
-                            ),
+                        ),
+                        SizedBox(width: 12),
+                        Expanded(
+                          child: MenuButton(
+                            title: "Data Pelanggan",
+                            icon: Icons.dashboard_customize_rounded,
+                            onTap: () {},
                           ),
-                        ],
-                      ),
-                      const SizedBox(height: 12),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: MenuButton(
-                              title: "Barang Masuk/Keluar",
-                              icon: Icons.receipt_long,
-                              onTap: () {},
-                            ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: MenuButton(
+                            title: "Barang Masuk/Keluar",
+                            icon: Icons.receipt_long,
+                            onTap: () {},
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
+              ),
             ],
           ),
         ),
