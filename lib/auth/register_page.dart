@@ -35,7 +35,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
-                      "assets/images/cosmo_square.png",
+                      "assets/images/cosmologo _transparan.png",
                       width: 100,
                       height: 100,
                     ),
