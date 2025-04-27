@@ -15,6 +15,16 @@ class _PelangganPageState extends State<PelangganPage> {
   final TextEditingController provController = TextEditingController();
   final TextEditingController posController = TextEditingController();
 
+
+  void clearFields() {
+    nameCustController.clear();
+    emailCustController.clear();
+    hpCustController.clear();
+    addresController.clear();
+    provController.clear();
+    posController.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
@@ -200,7 +210,7 @@ class _PelangganPageState extends State<PelangganPage> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {}
                       },
-                      child: Text("Selesai"),
+                      child: Text("Simpan"),
                     ),
                   ),
                 ],
@@ -219,7 +229,9 @@ class _PelangganPageState extends State<PelangganPage> {
                           ),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        clearFields();
+                      },
                       child: Text(
                         "Reset",
                         style: TextStyle(color: Color.fromRGBO(5, 169, 198, 1)),
