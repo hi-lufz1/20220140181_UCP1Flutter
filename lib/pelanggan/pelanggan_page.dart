@@ -189,6 +189,7 @@ class _PelangganPageState extends State<PelangganPage> {
                       ],
                     ),
                   ),
+                  
                 ],
               ),
               SizedBox(height: 48.0),
