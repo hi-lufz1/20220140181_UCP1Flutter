@@ -2,31 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class PiketPage extends StatefulWidget {
-  const PiketPage({super.key});
+  final String user;
+
+  const PiketPage({super.key, required this.user});
 
   @override
   State<PiketPage> createState() => _PiketPageState();
 }
 
 class _PiketPageState extends State<PiketPage> {
-  final TextEditingController emailController = TextEditingController();
   final TextEditingController dateController = TextEditingController();
   final TextEditingController taskController = TextEditingController();
 
   List<Map<String, String>> piketList = [];
 
   void addPiket() {
-    if (emailController.text.isNotEmpty &&
-        dateController.text.isNotEmpty &&
-        taskController.text.isNotEmpty) {
+    if (dateController.text.isNotEmpty && taskController.text.isNotEmpty) {
       setState(() {
         piketList.add({
-          'nama': emailController.text,
+          'nama': widget.user,
           'tanggal': dateController.text,
           'tugas': taskController.text,
         });
 
-        emailController.clear();
         dateController.clear();
         taskController.clear();
       });
@@ -61,7 +59,8 @@ class _PiketPageState extends State<PiketPage> {
           children: [
             Text("Nama Anggota", style: TextStyle(fontSize: 16)),
             TextFormField(
-              controller: emailController,
+              readOnly: true,
+              initialValue: widget.user,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16.0),
@@ -86,7 +85,8 @@ class _PiketPageState extends State<PiketPage> {
                       if (pickedDate != null) {
                         setState(() {
                           dateController.text = DateFormat(
-                            'EEEE, dd MMMM yyyy', 'id_ID',
+                            'EEEE, dd MMMM yyyy',
+                            'id_ID',
                           ).format(pickedDate);
                         });
                       }

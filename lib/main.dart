@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      home: const PiketPage(),
+      home: const PiketPage(user: "tesedw",),
     );
   }
 }
