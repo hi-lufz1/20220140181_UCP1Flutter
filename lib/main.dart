@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ucp1/auth/login_page.dart';
 import 'package:ucp1/auth/register_page.dart';
 import 'package:ucp1/home/home_page.dart';
+import 'package:ucp1/pelanggan/pelanggan_page.dart';
 import 'package:ucp1/piket/detail_piket_page.dart';
 import 'package:ucp1/piket/piket_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -28,8 +29,8 @@ class MyApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      // home: const DetailPiketPage(),
-      initialRoute: '/login',
+      home: const PelangganPage(),
+      // initialRoute: '/login',
       routes: {
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
