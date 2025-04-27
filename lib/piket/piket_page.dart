@@ -151,6 +151,11 @@ class _PiketPageState extends State<PiketPage> {
                           Colors.black,
                         ),
                         fixedSize: WidgetStateProperty.all(Size.fromHeight(50)),
+                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16.0),
+                          ),
+                        ),
                       ),
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {

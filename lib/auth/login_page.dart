@@ -90,6 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
+                SizedBox(height: 16.0),
                 Column(
                   children: [
                     Row(
@@ -100,13 +101,26 @@ class _LoginPageState extends State<LoginPage> {
                               backgroundColor: WidgetStateProperty.all<Color>(
                                 Color.fromRGBO(0, 224, 255, 1),
                               ),
+                              fixedSize: WidgetStateProperty.all(
+                                Size.fromHeight(50),
+                              ),
+                              shape: WidgetStateProperty.all<
+                                RoundedRectangleBorder
+                              >(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                              ),
                             ),
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => HomePage(user: emailController.text,),
+                                    builder:
+                                        (context) => HomePage(
+                                          user: emailController.text,
+                                        ),
                                   ),
                                 );
                               }

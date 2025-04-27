@@ -53,6 +53,12 @@ class _PelangganPageState extends State<PelangganPage> {
                     borderRadius: BorderRadius.circular(16.0),
                   ),
                 ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Nama Cust tidak boleh kosong';
+                  }
+                  return null;
+                },
               ),
               SizedBox(height: 16.0),
               Row(
@@ -70,6 +76,12 @@ class _PelangganPageState extends State<PelangganPage> {
                               borderRadius: BorderRadius.circular(16.0),
                             ),
                           ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Email tidak boleh kosong';
+                            }
+                            return null;
+                          },
                         ),
                       ],
                     ),
@@ -88,6 +100,12 @@ class _PelangganPageState extends State<PelangganPage> {
                               borderRadius: BorderRadius.circular(16.0),
                             ),
                           ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'No Hp tidak boleh kosong';
+                            }
+                            return null;
+                          },
                         ),
                       ],
                     ),
@@ -104,6 +122,12 @@ class _PelangganPageState extends State<PelangganPage> {
                     borderRadius: BorderRadius.circular(16.0),
                   ),
                 ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Alamat tidak boleh kosong';
+                  }
+                  return null;
+                },
               ),
               SizedBox(height: 16.0),
               Row(
@@ -121,6 +145,12 @@ class _PelangganPageState extends State<PelangganPage> {
                               borderRadius: BorderRadius.circular(16.0),
                             ),
                           ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Provinsi tidak boleh kosong';
+                            }
+                            return null;
+                          },
                         ),
                       ],
                     ),
@@ -139,8 +169,60 @@ class _PelangganPageState extends State<PelangganPage> {
                               borderRadius: BorderRadius.circular(16.0),
                             ),
                           ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Kode Pos tidak boleh kosong';
+                            }
+                            return null;
+                          },
                         ),
                       ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 32.0),
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStateProperty.all<Color>(
+                          Color.fromRGBO(0, 224, 255, 1),
+                        ),
+                        fixedSize: WidgetStateProperty.all(Size.fromHeight(50)),
+                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16.0),
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {}
+                      },
+                      child: Text("Selesai"),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 16.0),
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: WidgetStateProperty.all<Color>(
+                          Color.fromRGBO(0, 224, 255, 1),
+                        ),
+                        fixedSize: WidgetStateProperty.all(Size.fromHeight(50)),
+                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16.0),
+                          ),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Text("Reset"),
                     ),
                   ),
                 ],

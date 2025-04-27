@@ -201,65 +201,85 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                       ],
                     ),
-                    Row(
+                    SizedBox(height: 16.0),
+                    Column(
                       children: [
-                        Expanded(
-                          child: ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: WidgetStateProperty.all<Color>(
-                                Color.fromRGBO(0, 224, 255, 1),
-                              ),
-                            ),
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                if (passwordController.text !=
-                                    confirmPWController.text) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text('Password tidak sama'),
-                                      backgroundColor: Colors.red,
-                                    ),
-                                  );
-                                  return;
-                                }
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder:
-                                        (context) => HomePage(
-                                          user: emailController.text,
-                                        ),
-                                  ),
-                                );
-                              }
-                            },
-                            child: Text('Daftar'),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginPage()),
-                        );
-                      },
-                      child: RichText(
-                        text: TextSpan(
-                          text: 'Sudah memiliki akun? Silahkan ',
-                          style: TextStyle(color: Colors.black),
+                        Row(
                           children: [
-                            TextSpan(
-                              text: 'Login disini!',
-                              style: TextStyle(
-                                color: Color.fromRGBO(0, 172, 203, 1),
-                                fontWeight: FontWeight.bold,
+                            Expanded(
+                              child: ElevatedButton(
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      WidgetStateProperty.all<Color>(
+                                        Color.fromRGBO(0, 224, 255, 1),
+                                      ),
+                                  fixedSize: WidgetStateProperty.all(
+                                    Size.fromHeight(50),
+                                  ),
+                                  shape: WidgetStateProperty.all<
+                                    RoundedRectangleBorder
+                                  >(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16.0),
+                                    ),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    if (passwordController.text !=
+                                        confirmPWController.text) {
+                                      ScaffoldMessenger.of(
+                                        context,
+                                      ).showSnackBar(
+                                        SnackBar(
+                                          content: Text('Password tidak sama'),
+                                          backgroundColor: Colors.red,
+                                        ),
+                                      );
+                                      return;
+                                    }
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder:
+                                            (context) => HomePage(
+                                              user: emailController.text,
+                                            ),
+                                      ),
+                                    );
+                                  }
+                                },
+                                child: Text('Daftar'),
                               ),
                             ),
                           ],
                         ),
-                      ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginPage(),
+                              ),
+                            );
+                          },
+                          child: RichText(
+                            text: TextSpan(
+                              text: 'Sudah memiliki akun? Silahkan ',
+                              style: TextStyle(color: Colors.black),
+                              children: [
+                                TextSpan(
+                                  text: 'Login disini!',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(0, 172, 203, 1),
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
