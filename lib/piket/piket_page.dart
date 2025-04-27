@@ -96,14 +96,17 @@ class _PiketPageState extends State<PiketPage> {
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: WidgetStateProperty.all<Color>(
-                        Color.fromRGBO(0, 224, 255, 1),
+                        Colors.black,
                       ),
                       fixedSize: WidgetStateProperty.all(Size.fromHeight(50)),
                     ),
                     onPressed: () {
                       addPiket();
                     },
-                    child: Text("Tambah"),
+                    child: Text(
+                      "Tambah",
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
               ],
@@ -133,8 +136,17 @@ class _PiketPageState extends State<PiketPage> {
                         itemBuilder: (context, index) {
                           final piket = piketList[index];
                           return Card(
+                            color: Color.fromRGBO(5, 169, 198, 1),
                             margin: const EdgeInsets.symmetric(vertical: 8.0),
-                            child: ListTile(title: Text(piket['tugas'] ?? '')),
+                            child: ListTile(
+                              title: Text(
+                                piket['tugas'] ?? '',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
                           );
                         },
                       ),
