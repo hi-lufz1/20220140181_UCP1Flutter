@@ -71,7 +71,9 @@ class HomePage extends StatelessWidget {
                           child: MenuButton(
                             title: "Data Piket",
                             icon: Icons.edit_calendar,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, '/piket', arguments: user);
+                            },
                           ),
                         ),
                         SizedBox(width: 12),

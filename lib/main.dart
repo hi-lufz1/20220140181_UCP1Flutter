@@ -27,7 +27,21 @@ class MyApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      home: const PiketPage(user: "tesedw",),
+      initialRoute: '/login',
+      routes: {
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
+        '/home': (context) {
+          final String user =
+              ModalRoute.of(context)!.settings.arguments as String;
+          return HomePage(user: user);
+        },
+        '/piket': (context) {
+          final String user =
+              ModalRoute.of(context)!.settings.arguments as String;
+          return PiketPage(user: user);
+        },
+      },
     );
   }
 }
