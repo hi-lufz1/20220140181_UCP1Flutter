@@ -135,7 +135,12 @@ class DetailPelangganPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      int count = 0;
+                      Navigator.popUntil(context, (route) {
+                        return count++ == 2;
+                      });
+                    },
                     child: Text("Selesai"),
                   ),
                 ),

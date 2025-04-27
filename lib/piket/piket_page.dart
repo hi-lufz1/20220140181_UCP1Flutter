@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:ucp1/piket/detail_piket_page.dart';
 
 class PiketPage extends StatefulWidget {
   final String user;

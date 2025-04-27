@@ -55,6 +55,18 @@ class MyApp extends StatelessWidget {
           );
         },
         '/pelanggan': (context) => const PelangganPage(),
+        '/detailPelanggan': (context) {
+          final Map<String, String> args =
+              ModalRoute.of(context)!.settings.arguments as Map<String, String>;
+          return DetailPelangganPage(
+            nama: args['nama']!,
+            email: args['email']!,
+            noHp: args['noHp']!,
+            alamat: args['alamat']!,
+            provinsi: args['provinsi']!,
+            kodePos: args['kodePos']!,
+          );
+        },
       },
     );
   }

@@ -15,7 +15,6 @@ class _PelangganPageState extends State<PelangganPage> {
   final TextEditingController provController = TextEditingController();
   final TextEditingController posController = TextEditingController();
 
-
   void clearFields() {
     nameCustController.clear();
     emailCustController.clear();
@@ -189,7 +188,6 @@ class _PelangganPageState extends State<PelangganPage> {
                       ],
                     ),
                   ),
-                  
                 ],
               ),
               SizedBox(height: 48.0),
@@ -209,7 +207,20 @@ class _PelangganPageState extends State<PelangganPage> {
                         ),
                       ),
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {}
+                        if (_formKey.currentState!.validate()) {
+                          Navigator.pushNamed(
+                            context,
+                            '/detailPelanggan',
+                            arguments: {
+                              'nama': nameCustController.text,
+                              'email': emailCustController.text,
+                              'noHp': hpCustController.text,
+                              'alamat': addresController.text,
+                              'provinsi': provController.text,
+                              'kodePos': posController.text,
+                            },
+                          );
+                        }
                       },
                       child: Text("Simpan"),
                     ),
