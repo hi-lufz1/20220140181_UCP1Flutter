@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      home: const DetailPiketPage(),
-      // initialRoute: '/login',
+      // home: const DetailPiketPage(),
+      initialRoute: '/login',
       routes: {
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
@@ -42,6 +42,15 @@ class MyApp extends StatelessWidget {
           final String user =
               ModalRoute.of(context)!.settings.arguments as String;
           return PiketPage(user: user);
+        },
+        '/detailPiket': (context) {
+          final Map<String, String> args =
+              ModalRoute.of(context)!.settings.arguments as Map<String, String>;
+          return DetailPiketPage(
+            user: args['user']!,
+            tanggal: args['tanggal']!,
+            tugas: args['tugas']!,
+          );
         },
       },
     );

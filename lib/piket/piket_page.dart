@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:ucp1/piket/detail_piket_page.dart';
 
 class PiketPage extends StatefulWidget {
   final String user;
@@ -77,45 +78,43 @@ class _PiketPageState extends State<PiketPage> {
                 readOnly: true,
                 decoration: InputDecoration(
                   hintText: 'Pilih Tanggal',
-                  prefixIcon: IconButton(
-                    icon: Icon(Icons.today_outlined),
-                    onPressed: () {
-                      showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime(2000),
-                        lastDate: DateTime(2100),
-                        builder: (context, child) {
-                          return Theme(
-                            data: Theme.of(context).copyWith(
-                              colorScheme: ColorScheme.light(
-                                primary: Color.fromRGBO(5, 169, 198, 1),
-                                onPrimary: Colors.white,
-                                onSurface: Colors.black,
-                              ),
-                              dialogTheme: DialogThemeData(
-                                backgroundColor: Colors.white,
-                              ),
-                            ),
-                            child: child!,
-                          );
-                        },
-                      ).then((pickedDate) {
-                        if (pickedDate != null) {
-                          setState(() {
-                            dateController.text = DateFormat(
-                              'EEEE, dd MMMM yyyy',
-                              'id_ID',
-                            ).format(pickedDate);
-                          });
-                        }
-                      });
-                    },
-                  ),
+                  prefixIcon: Icon(Icons.today_outlined),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16.0),
                   ),
                 ),
+                onTap: () {
+                  showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(2000),
+                    lastDate: DateTime(2100),
+                    builder: (context, child) {
+                      return Theme(
+                        data: Theme.of(context).copyWith(
+                          colorScheme: ColorScheme.light(
+                            primary: Color.fromRGBO(5, 169, 198, 1),
+                            onPrimary: Colors.white,
+                            onSurface: Colors.black,
+                          ),
+                          dialogTheme: DialogThemeData(
+                            backgroundColor: Colors.white,
+                          ),
+                        ),
+                        child: child!,
+                      );
+                    },
+                  ).then((pickedDate) {
+                    if (pickedDate != null) {
+                      setState(() {
+                        dateController.text = DateFormat(
+                          'EEEE, dd MMMM yyyy',
+                          'id_ID',
+                        ).format(pickedDate);
+                      });
+                    }
+                  });
+                },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Tanggal tidak boleh kosong';
@@ -202,7 +201,17 @@ class _PiketPageState extends State<PiketPage> {
                                   ),
                                 ),
                                 trailing: IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(
+                                      context,
+                                      '/detailPiket',
+                                      arguments: {
+                                        'user': piket['nama']!,
+                                        'tanggal': piket['tanggal']!,
+                                        'tugas': piket['tugas']!,
+                                      },
+                                    );
+                                  },
                                   icon: Icon(
                                     Icons.arrow_forward_ios,
                                     color: Colors.white,

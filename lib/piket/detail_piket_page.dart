@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class DetailPiketPage extends StatelessWidget {
-  final String user = 'User';
-  final String tanggal = '2023-10-01';
-  final String tugas = 'Tugas Piket';
+  final String user;
+  final String tanggal;
+  final String tugas;
 
   const DetailPiketPage({
     super.key,
-    // required this.user,
-    // required this.tanggal,
-    // required this.tugas,
+    required this.user,
+    required this.tanggal,
+    required this.tugas,
   });
 
   @override
