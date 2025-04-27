@@ -222,12 +222,14 @@ class _RegisterPageState extends State<RegisterPage> {
                                   );
                                   return;
                                 }
-                                Navigator.pushAndRemoveUntil(
+                                Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => HomePage(user: emailController.text,),
+                                    builder:
+                                        (context) => HomePage(
+                                          user: emailController.text,
+                                        ),
                                   ),
-                                   (Route<dynamic> route) => false,
                                 );
                               }
                             },
@@ -238,10 +240,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushAndRemoveUntil(
+                        Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(builder: (context) => LoginPage()),
-                          (Route<dynamic> route) => false,
                         );
                       },
                       child: RichText(
