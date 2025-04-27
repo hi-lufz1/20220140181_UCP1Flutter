@@ -53,6 +53,7 @@ class MyApp extends StatelessWidget {
             tugas: args['tugas']!,
           );
         },
+        '/pelanggan': (context) => const PelangganPage(),
       },
     );
   }

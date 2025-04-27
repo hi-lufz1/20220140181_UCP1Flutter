@@ -81,7 +81,9 @@ class HomePage extends StatelessWidget {
                           child: MenuButton(
                             title: "Data Pelanggan",
                             icon: Icons.dashboard_customize_rounded,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, '/pelanggan');
+                            },
                           ),
                         ),
                       ],

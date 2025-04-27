@@ -181,7 +181,7 @@ class _PelangganPageState extends State<PelangganPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 32.0),
+              SizedBox(height: 48.0),
               Row(
                 children: [
                   Expanded(
@@ -211,18 +211,19 @@ class _PelangganPageState extends State<PelangganPage> {
                   Expanded(
                     child: ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all<Color>(
-                          Color.fromRGBO(0, 224, 255, 1),
-                        ),
                         fixedSize: WidgetStateProperty.all(Size.fromHeight(50)),
                         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16.0),
+                            side: BorderSide(color: Colors.black, width: 0.5),
                           ),
                         ),
                       ),
                       onPressed: () {},
-                      child: Text("Reset"),
+                      child: Text(
+                        "Reset",
+                        style: TextStyle(color: Color.fromRGBO(5, 169, 198, 1)),
+                      ),
                     ),
                   ),
                 ],
