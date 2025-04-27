@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
 
 class DetailPelangganPage extends StatelessWidget {
-  const DetailPelangganPage({super.key});
+  final String nama;
+  final String email;
+  final String noHp;
+  final String alamat;
+  final String provinsi;
+  final String kodePos;
+
+  const DetailPelangganPage({
+    super.key,
+    required this.nama,
+    required this.email,
+    required this.noHp,
+    required this.alamat,
+    required this.provinsi,
+    required this.kodePos,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -35,19 +50,19 @@ class DetailPelangganPage extends StatelessWidget {
             ),
             SizedBox(height: 4),
             Text(
-              'yhhhhh',
+              nama,
               style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8),
             Text(
-              'tes',
+              email,
               style: TextStyle(
                 fontSize: 16,
                 color: Color.fromRGBO(5, 169, 198, 1),
               ),
             ),
             SizedBox(height: 4),
-            Text('08', style: TextStyle(fontSize: 16)),
+            Text(noHp, style: TextStyle(fontSize: 16)),
             SizedBox(height: 32),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,7 +70,7 @@ class DetailPelangganPage extends StatelessWidget {
                 Text("Alamat", style: TextStyle(fontSize: 16)),
                 TextFormField(
                   readOnly: true,
-                  initialValue: 'widget.user',
+                  initialValue: alamat,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(16.0),
@@ -74,7 +89,7 @@ class DetailPelangganPage extends StatelessWidget {
                       Text("Provinsi", style: TextStyle(fontSize: 16)),
                       TextFormField(
                         readOnly: true,
-                        initialValue: 'Yogyakarta',
+                        initialValue: provinsi,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(16.0),
@@ -92,7 +107,7 @@ class DetailPelangganPage extends StatelessWidget {
                       Text("Kode Pos", style: TextStyle(fontSize: 16)),
                       TextFormField(
                         readOnly: true,
-                        initialValue: 'widget.user',
+                        initialValue: kodePos,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(16.0),
