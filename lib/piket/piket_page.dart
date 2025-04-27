@@ -72,6 +72,10 @@ class _PiketPageState extends State<PiketPage> {
             TextFormField(
               controller: dateController,
               decoration: InputDecoration(
+                prefixIcon: IconButton(
+                  icon: Icon(Icons.today_outlined),
+                  onPressed: () {},
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16.0),
                 ),
@@ -144,6 +148,13 @@ class _PiketPageState extends State<PiketPage> {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              trailing: IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
