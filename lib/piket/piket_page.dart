@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class PiketPage extends StatefulWidget {
   const PiketPage({super.key});
@@ -71,10 +72,26 @@ class _PiketPageState extends State<PiketPage> {
             Text("Tanggal Piket", style: TextStyle(fontSize: 16)),
             TextFormField(
               controller: dateController,
+              readOnly: true,
               decoration: InputDecoration(
                 prefixIcon: IconButton(
                   icon: Icon(Icons.today_outlined),
-                  onPressed: () {},
+                  onPressed: () {
+                    showDatePicker(
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(2000),
+                      lastDate: DateTime(2100),
+                    ).then((pickedDate) {
+                      if (pickedDate != null) {
+                        setState(() {
+                          dateController.text = DateFormat(
+                            'EEEE, dd MMMM yyyy', 'id_ID',
+                          ).format(pickedDate);
+                        });
+                      }
+                    });
+                  },
                 ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16.0),
