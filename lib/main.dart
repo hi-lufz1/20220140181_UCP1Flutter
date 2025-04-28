@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ucp1/auth/login_page.dart';
 import 'package:ucp1/auth/register_page.dart';
+import 'package:ucp1/barang/barang_page.dart';
 import 'package:ucp1/home/home_page.dart';
 import 'package:ucp1/pelanggan/detail_pelanggan_page.dart';
 import 'package:ucp1/pelanggan/pelanggan_page.dart';
@@ -30,8 +31,8 @@ class MyApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      // home: const DetailPelangganPage(),
-      initialRoute: '/login',
+      home: const BarangPage(),
+      // initialRoute: '/login',
       routes: {
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
