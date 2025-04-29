@@ -45,7 +45,7 @@ class DetailPelangganPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleAvatar(
-              backgroundImage: AssetImage("assets/images/cosmo_square.png"),
+              backgroundImage: AssetImage("assets/images/profil.jpeg"),
               radius: 54,
             ),
             SizedBox(height: 4),
