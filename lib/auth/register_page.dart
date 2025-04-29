@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ucp1/auth/login_page.dart';
-import 'package:ucp1/home/home_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -42,6 +40,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     const Text(
                       "DAFTAR AKUN BARU",
+                      textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 28),
                     ),
                     Column(
@@ -238,14 +237,10 @@ class _RegisterPageState extends State<RegisterPage> {
                                       );
                                       return;
                                     }
-                                    Navigator.pushReplacement(
+                                    Navigator.pushReplacementNamed(
                                       context,
-                                      MaterialPageRoute(
-                                        builder:
-                                            (context) => HomePage(
-                                              user: emailController.text,
-                                            ),
-                                      ),
+                                      '/home',
+                                      arguments: emailController.text,
                                     );
                                   }
                                 },
@@ -256,12 +251,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginPage(),
-                              ),
-                            );
+                            Navigator.pushReplacementNamed(context, '/login');
                           },
                           child: RichText(
                             text: TextSpan(

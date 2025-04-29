@@ -32,13 +32,6 @@ class MyApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      // home: const DetailBarangPage(
-      //   tanggal: '2023-10-01',
-      //   jenisTransaksi: 'Pembelian',
-      //   jenisBarang: 'Elektronik',
-      //   jumlahBarang: 10,
-      //   hargaSatuan: 100000,
-      // ),
       initialRoute: '/login',
       routes: {
         '/login': (context) => const LoginPage(),
@@ -48,6 +41,7 @@ class MyApp extends StatelessWidget {
               ModalRoute.of(context)!.settings.arguments as String;
           return HomePage(user: user);
         },
+        //Piket
         '/piket': (context) {
           final String user =
               ModalRoute.of(context)!.settings.arguments as String;
@@ -62,6 +56,7 @@ class MyApp extends StatelessWidget {
             tugas: args['tugas']!,
           );
         },
+        //Pelanggan
         '/pelanggan': (context) => const PelangganPage(),
         '/detailPelanggan': (context) {
           final Map<String, String> args =
@@ -75,6 +70,7 @@ class MyApp extends StatelessWidget {
             kodePos: args['kodePos']!,
           );
         },
+        //Barang
         '/barang': (context) => const BarangPage(),
         '/detailBarang': (context) {
           final Map<String, dynamic> args =

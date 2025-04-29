@@ -25,12 +25,11 @@ class DetailBarangPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 40),
             CircleAvatar(
               radius: 70,
-              backgroundColor:   Color.fromRGBO(200, 249, 255, 1),
+              backgroundColor: Color.fromRGBO(200, 249, 255, 1),
               child: const Icon(
-                Icons.check_circle,
+                Icons.check_circle_rounded,
                 size: 100,
                 color: Color.fromRGBO(0, 198, 224, 1),
               ),

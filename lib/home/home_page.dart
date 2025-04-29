@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ucp1/auth/login_page.dart';
 import 'package:ucp1/widget/menu_button.dart';
 
 class HomePage extends StatelessWidget {
@@ -42,10 +41,7 @@ class HomePage extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.logout,color: Colors.white ),
               onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LoginPage()),
-                );
+                Navigator.pushReplacementNamed(context, '/login');
               },
             ),
           ],

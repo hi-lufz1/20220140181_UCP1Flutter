@@ -106,10 +106,8 @@ class _BarangPageState extends State<BarangPage> {
                 },
               ),
               SizedBox(height: 16.0),
-              Text("Jenis Transaksi", style: TextStyle(fontSize: 16)),
               DropdownButtonFormField<String>(
                 value: selectedTransaksi,
-                hint: Text("Pilih Jenis Transaksi"),
                 items:
                     transaksiList.map((transaksi) {
                       return DropdownMenuItem(
@@ -126,6 +124,7 @@ class _BarangPageState extends State<BarangPage> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16.0),
                   ),
+                  labelText: "Jenis Transaksi",
                 ),
                 validator: (value) {
                   if (value == null) {
@@ -135,10 +134,9 @@ class _BarangPageState extends State<BarangPage> {
                 },
               ),
               SizedBox(height: 16.0),
-              Text("Jenis Barang", style: TextStyle(fontSize: 16)),
+
               DropdownButtonFormField<String>(
                 value: selectedBarang,
-                hint: Text("Pilih Jenis Barang"),
                 items:
                     barangHarga.keys.map((barang) {
                       return DropdownMenuItem(
@@ -157,6 +155,7 @@ class _BarangPageState extends State<BarangPage> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16.0),
                   ),
+                  labelText: "Jenis Barang",
                 ),
                 validator: (value) {
                   if (value == null) {

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ucp1/auth/register_page.dart';
-import 'package:ucp1/home/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -35,6 +33,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const Text(
                   "SELAMAT DATANG KEMBALI",
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 28),
                 ),
                 Column(
@@ -114,14 +113,10 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
-                                Navigator.pushReplacement(
+                                Navigator.pushReplacementNamed(
                                   context,
-                                  MaterialPageRoute(
-                                    builder:
-                                        (context) => HomePage(
-                                          user: emailController.text,
-                                        ),
-                                  ),
+                                  '/home',
+                                  arguments: emailController.text,
                                 );
                               }
                             },
@@ -132,12 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => RegisterPage(),
-                          ),
-                        );
+                        Navigator.pushReplacementNamed(context, '/register');
                       },
                       child: RichText(
                         text: TextSpan(
