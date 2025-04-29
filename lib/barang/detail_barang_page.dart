@@ -40,7 +40,7 @@ class DetailBarangPage extends StatelessWidget {
               'Data Berhasil Disimpan',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 40),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(

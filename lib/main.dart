@@ -32,14 +32,14 @@ class MyApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      home: const DetailBarangPage(
-        tanggal: '2023-10-01',
-        jenisTransaksi: 'Pembelian',
-        jenisBarang: 'Elektronik',
-        jumlahBarang: 10,
-        hargaSatuan: 100000,
-      ),
-      // initialRoute: '/login',
+      // home: const DetailBarangPage(
+      //   tanggal: '2023-10-01',
+      //   jenisTransaksi: 'Pembelian',
+      //   jenisBarang: 'Elektronik',
+      //   jumlahBarang: 10,
+      //   hargaSatuan: 100000,
+      // ),
+      initialRoute: '/login',
       routes: {
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
@@ -73,6 +73,19 @@ class MyApp extends StatelessWidget {
             alamat: args['alamat']!,
             provinsi: args['provinsi']!,
             kodePos: args['kodePos']!,
+          );
+        },
+        '/barang': (context) => const BarangPage(),
+        '/detailBarang': (context) {
+          final Map<String, dynamic> args =
+              ModalRoute.of(context)!.settings.arguments
+                  as Map<String, dynamic>;
+          return DetailBarangPage(
+            tanggal: args['tanggal'],
+            jenisTransaksi: args['jenisTransaksi'],
+            jenisBarang: args['jenisBarang'],
+            jumlahBarang: int.tryParse(args['jumlahBarang']) ?? 0,
+            hargaSatuan: int.tryParse(args['hargaSatuan']) ?? 0,
           );
         },
       },

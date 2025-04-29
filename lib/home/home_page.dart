@@ -95,7 +95,9 @@ class HomePage extends StatelessWidget {
                           child: MenuButton(
                             title: "Barang Masuk/Keluar",
                             icon: Icons.receipt_long,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, '/barang');
+                            },
                           ),
                         ),
                       ],

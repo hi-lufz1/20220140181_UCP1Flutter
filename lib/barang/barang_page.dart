@@ -202,7 +202,7 @@ class _BarangPageState extends State<BarangPage> {
                           readOnly: true,
                           decoration: InputDecoration(
                             hintText: 'Harga Satuan',
-                            prefixText: "Rp",
+                            prefixText: "Rp ",
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(16.0),
                             ),
@@ -236,7 +236,19 @@ class _BarangPageState extends State<BarangPage> {
                         ),
                       ),
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {}
+                        if (_formKey.currentState!.validate()) {
+                          Navigator.pushNamed(
+                            context,
+                            '/detailBarang',
+                            arguments: {
+                              'tanggal': dateController.text,
+                              'jenisTransaksi': selectedTransaksi,
+                              'jenisBarang': selectedBarang,
+                              'jumlahBarang': jumlahController.text,
+                              'hargaSatuan': hargaController.text,
+                            },
+                          );
+                        }
                       },
                       child: Text("Submit"),
                     ),
