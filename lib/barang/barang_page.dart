@@ -185,6 +185,13 @@ class _BarangPageState extends State<BarangPage> {
                             if (value == null || value.isEmpty) {
                               return 'Jumlah barang tidak boleh kosong';
                             }
+                            final number = int.tryParse(value);
+                            if (number == null) {
+                              return 'Hanya boleh angka';
+                            }
+                            if (number < 0) {
+                              return 'Tidak boleh kurang dari 0';
+                            }
                             return null;
                           },
                         ),
